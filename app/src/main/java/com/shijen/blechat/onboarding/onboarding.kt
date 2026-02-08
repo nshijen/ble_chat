@@ -1,4 +1,4 @@
-package com.shijen.blechat.home
+package com.shijen.blechat.onboarding
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -17,6 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,14 +26,21 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.shijen.blechat.R
+import com.shijen.blechat.core.Login
+import kotlinx.coroutines.delay
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainApp(){
+fun OnboardingScreen(navigationController: NavHostController) {
     val _bottomSheetState = rememberBottomSheetScaffoldState()
     rememberCoroutineScope()
+    LaunchedEffect(Unit) {
+        delay(3000)
+        navigationController.navigate(Login)
+    }
     Scaffold(
         topBar = {
             TopAppBar(title = {
@@ -45,7 +53,6 @@ fun MainApp(){
         },
         modifier = Modifier.fillMaxSize(),
     ) { innerPadding ->
-
         BottomSheetScaffold(
             containerColor = Color.Green,
             scaffoldState = _bottomSheetState,

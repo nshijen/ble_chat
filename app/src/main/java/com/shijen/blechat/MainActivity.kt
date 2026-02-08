@@ -7,7 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.shijen.blechat.core.AppNavigation
-import com.shijen.blechat.home.MainApp
+import com.shijen.blechat.onboarding.OnboardingScreen
 import com.shijen.blechat.ui.theme.BleChatTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,6 +29,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     BleChatTheme {
-        MainApp()
+        //OnboardingScreen(navigationController = ))
     }
 }
